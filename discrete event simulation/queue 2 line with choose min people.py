@@ -47,43 +47,7 @@ class Client:
         self.waitTime = 0.0
         self.startTime = 0.0
         self.endTime = 0.0
-        self.totalSpendTime=0.0
-
-    def setNum(self, num):
-        self.clientNum = num
-
-    def getNum(self):
-        return self.clientNum
-
-    def setArrival_time(self, num):
-        self.arrival_time = Arrival_time[num]
-
-    def getArrival_time(self):
-        return self.arrival_time
-
-    def setServerChoice(self, num):
-        self.server_choice = num
-
-    def getServerChoice(self):
-        return self.server_choice
-
-    def setwaitTime(self, num):
-        self.waitTime = num
-
-    def getwaitTime(self):
-        return self.waitTime
-
-    def setstartTime(self, num):
-        self.startTime = num
-
-    def getstartTime(self):
-        return self.waitTime
-
-    def setendTime(self, num):
-        self.endTime = num
-
-    def getendTime(self):
-        return self.endTime
+        self.totalSpendTime = 0.0
 
     def choose_server(self):
         print(len(server1.getQueue()), ", ", len(server2.getQueue()))
@@ -141,7 +105,7 @@ for clientNum in range(end):  # event generate
     client.choose_server()
     if len(client_list) == 0:
         # client.setWatingTime(last_time - client.getArrival_time())
-        client.setstartTime(client.getArrival_time())
+        client.startTime = client.arrival_time
         client.setendTime(client.getArrival_time() + client.service_time )
         client.totalSpendTime = client.service_time
         client_list.append(client)
